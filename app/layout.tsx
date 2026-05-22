@@ -5,6 +5,8 @@ import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { rootMetadata } from "@/lib/site";
 import { JsonLd, localBusinessSchema } from "@/components/seo/json-ld";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -39,6 +41,8 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col font-body">
         <JsonLd data={localBusinessSchema()} />
+        <Analytics />
+        <SpeedInsights />
         <Navigation />
         <main className="flex-1">{children}</main>
         <Footer />
